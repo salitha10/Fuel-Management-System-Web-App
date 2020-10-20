@@ -1,0 +1,81 @@
+/*
+ * Run this my-sql query
+ * Schema name is servicestation
+ * Change the databse configuraions according to your device
+   in DB.properties file
+ *	
+*/
+
+
+CREATE TABLE userDetails(
+	userID INTEGER AUTO_INCREMENT PRIMARY KEY,
+	fname VARCHAR(255) NOT NULL,
+	lname VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	password VARCHAR(255) NOT NULL,
+	phoneNo VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE fuelstock(
+	recordID INT AUTO_INCREMENT PRIMARY KEY,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	fuelType VARCHAR(20) NOT NULL,
+	maxCapacity FLOAT,
+	currentAmount FLOAT NOT NULL
+);
+
+INSERT INTO fuelstock(date, time,fuelType,maxCapacity,currentAmount)
+VALUES
+('2020-10-10', '08:00:00','Petrol', 5000, 4000),
+('2020-10-10', '08:00:00','Diesel', 5000, 4500),
+('2020-10-10', '8:00:00','Kerosine', 2000, 1150),
+        
+('2020-10-10', '09:00:00','Petrol', 5000, 3000),
+('2020-10-10', '09:00:00','Diesel', 5000, 4000),
+('2020-10-10', '9:00:00','Kerosine', 2000, 2050),
+    
+('2020-10-10', '10:00:00','Petrol', 5000, 2000),
+('2020-10-10', '10:00:00','Diesel', 5000, 3750),
+('2020-10-10', '10:00:00','Kerosine', 2000, 1990),
+    
+('2020-10-10', '11:00:00','Petrol', 5000, 1000),
+('2020-10-10', '11:00:00','Diesel', 5000, 3500),
+('2020-10-10', '11:00:00','Kerosine', 2000, 1980),
+        
+('2020-10-10', '12:00:00','Petrol', 5000, 500),
+('2020-10-10', '12:00:00','Diesel', 5000, 3000),
+('2020-10-10', '12:00:00','Kerosine', 2000, 1000);
+
+CREATE TABLE restockrequests(
+	recordID INT AUTO_INCREMENT PRIMARY KEY,
+	date DATE NOT NULL,
+	time TIME NOT NULL,
+	branch VARCHAR(20),
+	fuelType VARCHAR(20) NOT NULL,
+	amountRequired FLOAT NOT NULL,
+	status VARCHAR(20)
+);
+
+
+INSERT INTO restockrequests(date, time,branch,fuelType,amountRequired, status)
+VALUES 
+('2020-10-09','20:10:00','Kaduwela', 'Petrol', 2000,'Recived'),
+('2020-10-09','21:15:00','Malabe', 'Diesel', 2000,'Recived'),
+('2020-10-09','22:00:00','Pettah', 'Diesel', 2000,'Recived'),
+('2020-10-10','20:10:00','Kaduwela', 'Diesel', 2000,'In transit'),
+('2020-10-11','22:30:00','Kaduwela', 'Petrol', 5000,'Incomplete'),
+('2020-10-11','22:50:00','Pettah', 'Kerosine', 2500,'Incomplete');
+
+
+CREATE TABLE fuelorders(
+	recordID INT AUTO_INCREMENT PRIMARY KEY,
+    date_time DATETIME,
+	petrolAmount FLOAT NOT NULL,
+    dieselAmount FLOAT NOT NULL,
+    kerosineAmount FLOAT NOT NULL
+);
+
+
+INSERT INTO fuelorders (date_time, petrolAmount, dieselAmount, kerosineAmount)
+VALUES (NOW(), 5000, 1000, 2500);

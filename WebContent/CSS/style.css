@@ -1,0 +1,155 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Roboto", sans-serif;
+}
+
+.menu_itms {
+	font-size: 20px;
+	font-family: 'Aldrich';
+}
+
+#tdhide {
+	background-color: seashell;
+}
+
+.heading {
+	font-size: 25px;
+	font-family: fantasy;
+}
+
+.menu {
+	padding: 20px;
+	width: 100%;
+	transition: background-color 0.5s;
+}
+
+.active {
+	background-color: aliceblue;
+}
+
+i {
+	width: 20px;
+	margin-right: 10px;
+	color: darkgrey;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.menu:hover {
+	position: relative;
+	background-color: aqua;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+	z-index: 20;
+	/*box-shadow: 5px 5px 10px grey;
+	z-index: 10 !important;*/
+	padding: 3x;
+}
+
+@media screen and (max-width: 400px) {
+	.sidebar a {
+		text-align: center;
+		float: none;
+	}
+	
+	.tdcontent{
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 1015px) {
+	.menu_itms {
+		display: none;
+	}
+	#tdhide {
+		display: none;
+	}
+	#menu_btn {
+		display: inline-block !important;
+	}
+	#home_btn {
+		display: none;
+	}
+	
+	.tdcontent{
+		padding: 10px;
+	}
+}
+
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+	color: #f1f1f1;
+}
+
+.overlay .closebtn {
+	position: absolute;
+	top: 50px;
+	right: 45px;
+	font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay a {
+		font-size: 20px
+	}
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 20px;
+		right: 35px;
+	}
+	
+	.tdcontent{
+		padding: 10px;
+	}
+}
+
+#menu_btn {
+	display: none;
+}
+
+.progress-bar {
+	width: 0;
+	transition: width 3s !important;
+}
+
+.swal-footer {
+text-align: center !important;
+}
